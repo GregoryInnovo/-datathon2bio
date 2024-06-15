@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Damas",
+        "to": "#features",
+        "href": "/#features",
+        "path": "/women"
+    },
+    {
+        "name": "Caballeros",
+        "to": "#testimonials",
+        "href": "/#testimonials",
+        "path": "/men"
+    },
+    { "name": "FAQ", "to": "#faq", "href": "/#faq", "disabled": true },
+    {
+        "name": "Contact",
+        "href": "https://chrstnl.com/",
+        "isArrow": true,
+        "target": "_blank",
+        "disabled": true
+    }
+]

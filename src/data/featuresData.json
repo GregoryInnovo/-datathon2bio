@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Reparación de productos de cuero",
+        "content": "¿Necesitas reparar tus productos de cuero? Nosotros te ayudamos. No importa si es un bolso, zapatos, chaqueta, cinturón, etc. Nosotros lo reparamos.",
+        "align": "right",
+        "image": "/images/features1.jpg"
+    },
+    {
+        "id": 1,
+        "title": "Venta",
+        "content": "¿Necesitas comprar productos de cuero? Nosotros te ofrecemos una amplia variedad de productos de cuero. Bolsos, zapatos, chaquetas, cinturones, etc.",
+        "align": "left",
+        "image": "/images/features2.png"
+    }
+]
