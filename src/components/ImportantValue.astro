@@ -2,14 +2,12 @@
 const { title, description } = Astro.props;
 ---
 
-<div
-  class="flex flex-col items-center relative w-20 h-40 justify-center m-1 mx-16 text-xl rounded-full text-white"
->
+<section class="flex flex-col w-44 items-center">
   <img
-    class="rounded-full"
-    alt={title}
+    class="rounded w-36 h-36"
     src="https://randomuser.me/api/portraits/women/8.jpg"
+    alt={title}
   />
-  <h2>{title}</h2>
-  <a>{description}</a>
-</div>
+  <h2 class="font-bold">{title}</h2>
+  <a class="text-center text-sm">{description}</a>
+</section>
