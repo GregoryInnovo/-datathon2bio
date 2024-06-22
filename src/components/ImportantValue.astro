@@ -1,13 +1,9 @@
 ---
-const { title, description } = Astro.props;
+const { icon, title, description } = Astro.props;
 ---
 
-<section class="flex flex-col w-44 items-center">
-  <img
-    class="rounded w-36 h-36"
-    src="https://randomuser.me/api/portraits/women/8.jpg"
-    alt={title}
-  />
-  <h2 class="font-bold">{title}</h2>
-  <a class="text-center text-sm">{description}</a>
+<section class="flex flex-col w-48 items-center">
+  <img class="w-20 h-20" src={icon} alt={description} />
+  <h2>{title}</h2>
+  <a class="text-center font-bold text-sm">{description}</a>
 </section>

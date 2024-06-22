@@ -33,21 +33,25 @@ const images = [
 
 const importantValues = [
   {
-    title: "32,877,145",
+    title: "32,877",
     description: "Registros de biodiversidad",
+    icon: "/public/icons/total.png",
   },
   {
-    title: "1,200",
-    description: "Especies de aves",
+    title: "71,937",
+    description: "Invertebrados",
+    icon: "/public/icons/inver.png",
   },
   {
-    title: "1,200",
-    description: "Especies de aves",
+    title: "50,837",
+    description: "Vertebrados",
+    icon: "/public/icons/ver.png",
   },
-  {
-    title: "1,200",
-    description: "Especies de aves",
-  },
+  // {
+  //   title: "1,200",
+  //   description: "Especies de aves",
+  //   icon: "/public/icons/bird.png",
+  // },
 ];
 ---
 
@@ -72,7 +76,11 @@ const importantValues = [
     <section class="flex flex-row flex-wrap w-full justify-between">
       {
         importantValues.map((value) => (
-          <ImportantValue title={value.title} description={value.description} />
+          <ImportantValue
+            title={value.title}
+            description={value.description}
+            icon={value.icon}
+          />
         ))
       }
     </section>
@@ -80,10 +88,55 @@ const importantValues = [
       title="Reino"
       description="En el campo de la biología, un reino es una clasificación que agrupa a organismos basándose en características fundamentales compartidas, tales como la estructura de sus células, su forma de obtener energía y su reproducción. Por ejemplo, el reino Animalia incluye seres vivos que se alimentan de otros organismos y tienen la capacidad de moverse, mientras que el reino Plantae consta de organismos que generan su propio alimento a través de la fotosíntesis. Los reinos son esenciales para entender cómo los distintos tipos de vida en la Tierra están relacionados entre sí y cómo han evolucionado a lo largo del tiempo."
     />
-    <DataGeneral
-      title="Filo"
-      description="En biología, un filo es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se encuentra entre el reino y la clase, y se utiliza para agrupar organismos que comparten un ancestro común y un modelo de organización similar1. Los filos representan grandes grupos de la vida en la Tierra y se definen por características distintivas en su estructura y desarrollo. Por ejemplo, el filo Chordata incluye a todos los animales con una cuerda dorsal, como los mamíferos, aves y peces, mientras que el filo Arthropoda abarca a los insectos, arácnidos y crustáceos, conocidos por su exoesqueleto y segmentación corporal2. La clasificación en filos ayuda a los científicos a entender las complejas relaciones evolutivas y la diversidad biológica."
-    />
+
+    <section class="mt-1">
+      <div
+        class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+      >
+        <div class="font-light text-white sm:text-lg">
+          <h2
+            class="mb-4 text-4xl tracking-tight font-extrabold text-green-300"
+          >
+            Filo
+          </h2>
+          <p>
+            En biología, un filo es una categoría taxonómica (relacionada con la
+            taxonomía, que es la ciencia de clasificar los seres vivos) que se
+            encuentra entre el reino y la clase, y se utiliza para agrupar
+            organismos que comparten un ancestro común y un modelo de
+            organización similar.
+          </p>
+
+          <ol class="mb-4 list-decimal">
+            <li class="ml-4 text-base mb-1">
+              Los filos representan grandes grupos de la vida en la Tierra y se
+              definen por características distintivas en su estructura y
+              desarrollo. Por ejemplo, el filo Chordata incluye a todos los
+              animales con una cuerda dorsal, como los mamíferos, aves y peces,
+              mientras que el filo Arthropoda abarca a los insectos, arácnidos y
+              crustáceos, conocidos por su exoesqueleto y segmentación corporal.
+            </li>
+            <li class="ml-4 text-base">
+              La clasificación en filos ayuda a los científicos a entender las
+              complejas relaciones evolutivas y la diversidad biológica.
+            </li>
+          </ol>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <img
+            class="w-full rounded-lg"
+            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+            alt="office content 1"
+          />
+          <img
+            class="mt-4 w-full lg:mt-10 rounded-lg"
+            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+            alt="office content 2"
+          />
+        </div>
+      </div>
+    </section>
+
     <DataGeneral
       title="Clase"
       description="En biología, la clase es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se ubica entre el filo y el orden. Agrupa a organismos que comparten un conjunto de rasgos distintivos y un ancestro común. Por ejemplo, la clase Mammalia (mamíferos) incluye a todos los animales que poseen glándulas mamarias para alimentar a sus crías con leche. La clasificación en clases ayuda a organizar la diversidad biológica y refleja la historia evolutiva y las relaciones entre diferentes grupos de seres vivos."
