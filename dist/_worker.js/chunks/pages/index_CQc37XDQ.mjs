@@ -1,8 +1,8 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
-import '../@astrojs_CY-DcyNA.mjs';
+import '../@astrojs_D6DV8j00.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, e as addAttribute, g as createAstro, d as renderComponent } from '../../renderers.mjs';
 import '../kleur_BcFxsYqz.mjs';
-import { $ as $$Layout } from './animalae_CBmdLa1T.mjs';
+import { $ as $$Layout } from './animalae_wZp8s6rD.mjs';
 /* empty css                          */
 
 const $$Astro$1 = createAstro();
@@ -53,17 +53,17 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
     {
       title: "32,877",
       description: "Registros de biodiversidad",
-      icon: "/public/icons/total.png"
+      icon: "assets/icons/total.png"
     },
     {
       title: "71,937",
       description: "Invertebrados",
-      icon: "/public/icons/inver.png"
+      icon: "assets/icons/inver.png"
     },
     {
       title: "50,837",
       description: "Vertebrados",
-      icon: "/public/icons/ver.png"
+      icon: "assets/icons/ver.png"
     }
     // {
     //   title: "1,200",

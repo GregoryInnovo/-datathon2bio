@@ -5,14 +5,14 @@
   ],
   "exclude": [
     "/_astro/*",
+    "/assets\\icons\\bird.png",
+    "/assets\\icons\\inver.png",
+    "/assets\\icons\\total.png",
+    "/assets\\icons\\ver.png",
     "/assets\\images\\img1.jpg",
     "/assets\\images\\img2.jpg",
     "/assets\\images\\img3.jpg",
     "/assets\\images\\img4.jpg",
-    "/favicon.svg",
-    "/icons\\bird.png",
-    "/icons\\inver.png",
-    "/icons\\total.png",
-    "/icons\\ver.png"
+    "/favicon.svg"
   ]
 }

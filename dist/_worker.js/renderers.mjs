@@ -1,7 +1,7 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
 import { b as bold, r as red, y as yellow, d as dim, a as blue } from './chunks/kleur_BcFxsYqz.mjs';
 import { c as compile } from './chunks/path-to-regexp_Xgx1vbKb.mjs';
-import { _ as _renderer0, a as appendForwardSlash, j as joinPaths, t as trimSlashes, f as fileExtension, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, i as isRemotePath } from './chunks/@astrojs_CY-DcyNA.mjs';
+import { _ as _renderer0, a as appendForwardSlash, j as joinPaths, t as trimSlashes, f as fileExtension, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, i as isRemotePath } from './chunks/@astrojs_D6DV8j00.mjs';
 import { s as serialize_1, p as parse_1 } from './chunks/cookie_BTCaQS-K.mjs';
 import { c as clsx } from './chunks/clsx_CNI3IGC6.mjs';
 import { e as escape } from './chunks/html-escaper_ClQ6UWd1.mjs';

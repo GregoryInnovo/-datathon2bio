@@ -1,8 +1,8 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
-import '../@astrojs_CY-DcyNA.mjs';
+import '../@astrojs_D6DV8j00.mjs';
 import { c as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../../renderers.mjs';
 import '../kleur_BcFxsYqz.mjs';
-import { $ as $$Layout } from './animalae_CBmdLa1T.mjs';
+import { $ as $$Layout } from './animalae_wZp8s6rD.mjs';
 /* empty css                            */
 
 const $$Plantae = createComponent(($$result, $$props, $$slots) => {
