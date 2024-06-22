@@ -7,6 +7,30 @@ const menuItems = [
   { href: "fungi", text: "Fungi" },
   { href: "explore", text: "Explora", isButton: true },
 ];
+
+// Add a new prop to determine the current page
+const { currentPage = "index" } = Astro.props;
+
+// Define the text for different pages
+const pageTexts = {
+  index:
+    "Explora la maravillosa <strong>biodiversidad</strong><br />en <strong>Colombia</strong> y sus múltiples regiones",
+  animalae: "Descubre la fascinante fauna de <strong>Colombia</strong>",
+  plantae: "Admira la exuberante flora <strong>colombiana</strong>",
+  fungi:
+    "Explora el misterioso mundo de los hongos en <strong>Colombia</strong>",
+  explore: `<ul class="text-center text-2xl text-green-900 dark:text-white">
+    <li>Conoce la <strong>biodiversidad</strong> en <strong>Colombia</strong></li>
+    <li>en sus múltiples regiones y especies</li>
+  </ul>
+  <br/>
+  <p class="text-xl text-green-700 dark:text-green-200">
+    Selecciona una categoría para: <br/> Conocer el número de especies en cada reino <br/> Filtrar por departamento
+  </p>`,
+};
+
+// Get the appropriate text based on the current page
+const headerText = pageTexts[currentPage] || pageTexts.index;
 ---
 
 <header>
@@ -109,11 +133,7 @@ const menuItems = [
     <hr class="border-t border-gray-200 my-4 w-11/12 mx-auto" />
 
     <h3 class="text-center text-2xl text-green-900 dark:text-white pb-48">
-      Explora la maravillosa
-      <strong>biodiversidad</strong>
-      <br />
-      en <strong>Colombia</strong>
-      y sus múltiples regiones
+      <Fragment set:html={headerText} />
     </h3>
   </nav>
 
