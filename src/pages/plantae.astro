@@ -4,7 +4,23 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Reino Plantae" currentPage="plantae">
   <main>
-    <h1>Reino Plantae</h1>
+    <section class="relative inset-x-0 bottom-36">
+      <iframe
+        title="Tablero_Plantae"
+        width="100%"
+        height="1800"
+        src="https://app.powerbi.com/view?r=eyJrIjoiODczNGIwNjAtMWU5MS00Y2Y3LWExNGItYzkyOWU5ZDNkMDJkIiwidCI6IjEzZDVlMjVjLTQ5NTEtNDFhMi05NzQyLWMxYzA3ZDY2OTVhMyIsImMiOjR9"
+        frameborder="0"
+        allowFullScreen="true"></iframe>
+
+      <iframe
+        title="Plantae"
+        width="100%"
+        height="1800"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZDc2ZDNiMTEtYWY2OS00OTAyLTg1OWMtNTAxY2RjOWQ2MGRhIiwidCI6IjEzZDVlMjVjLTQ5NTEtNDFhMi05NzQyLWMxYzA3ZDY2OTVhMyIsImMiOjR9"
+        frameborder="0"
+        allowFullScreen="true"></iframe>
+    </section>
   </main>
 </Layout>
 
@@ -12,10 +28,20 @@ import Layout from "../layouts/Layout.astro";
   main {
     margin: auto;
     padding: 1rem;
-    width: 800px;
+    width: 95vw;
     max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;
     line-height: 1.6;
+  }
+
+  iframe {
+    height: 600px;
+  }
+
+  @media (max-width: 600px) {
+    iframe {
+      height: 350px;
+    }
   }
 </style>

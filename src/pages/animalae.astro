@@ -4,7 +4,15 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Reino Animalae" currentPage="animalae">
   <main>
-    <h1>Reino Animalae</h1>
+    <section class="relative inset-x-0 bottom-36">
+      <iframe
+        title="Animalia"
+        width="100%"
+        height="1800"
+        src="https://app.powerbi.com/view?r=eyJrIjoiYTA4NzI4NGQtOTUzNS00NTQ5LWI0OTYtODY3OTAxZGUzNDllIiwidCI6IjEzZDVlMjVjLTQ5NTEtNDFhMi05NzQyLWMxYzA3ZDY2OTVhMyIsImMiOjR9"
+        frameborder="0"
+        allowFullScreen="true"></iframe>
+    </section>
   </main>
 </Layout>
 
@@ -12,10 +20,20 @@ import Layout from "../layouts/Layout.astro";
   main {
     margin: auto;
     padding: 1rem;
-    width: 800px;
+    width: 95vw;
     max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;
     line-height: 1.6;
+  }
+
+  iframe {
+    height: 600px;
+  }
+
+  @media (max-width: 600px) {
+    iframe {
+      height: 350px;
+    }
   }
 </style>

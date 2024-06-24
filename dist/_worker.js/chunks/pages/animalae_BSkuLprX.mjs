@@ -1,5 +1,5 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
-import '../@astrojs_CP8W6PcL.mjs';
+import '../@astrojs_Cf9oxj1T.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, b as renderSlot, d as renderComponent, e as createAstro, f as addAttribute, u as unescapeHTML, F as Fragment, g as renderHead } from '../../renderers.mjs';
 import '../kleur_BcFxsYqz.mjs';
 /* empty css                             */
@@ -14,10 +14,14 @@ const $$Header = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Header;
   const menuItems = [
-    { href: "animalae", text: "Animalae" },
-    { href: "plantae", text: "Plantae" },
-    { href: "fungi", text: "Fungi" },
-    { href: "explore", text: "Explora", isButton: true }
+    // { href: "animalae", text: "Animalae" },
+    // { href: "plantae", text: "Plantae" },
+    // { href: "fungi", text: "Fungi" },
+    {
+      href: "explore",
+      text: "Explora la biodiversidad de Colombia",
+      isButton: true
+    }
   ];
   const { currentPage = "index" } = Astro2.props;
   const pageTexts = {
@@ -58,7 +62,7 @@ const $$Layout = createComponent(($$result, $$props, $$slots) => {
 }, "C:/Users/greg/dev/datathon2Bio/src/layouts/Layout.astro", void 0);
 
 const $$Animalae = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Reino Animalae", "currentPage": "animalae", "data-astro-cid-de6dxiz5": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main data-astro-cid-de6dxiz5> <h1 data-astro-cid-de6dxiz5>Reino Animalae</h1> </main> ` })} `;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Reino Animalae", "currentPage": "animalae", "data-astro-cid-de6dxiz5": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main data-astro-cid-de6dxiz5> <section class="relative inset-x-0 bottom-36" data-astro-cid-de6dxiz5> <iframe title="Animalia" width="100%" height="1800" src="https://app.powerbi.com/view?r=eyJrIjoiYTA4NzI4NGQtOTUzNS00NTQ5LWI0OTYtODY3OTAxZGUzNDllIiwidCI6IjEzZDVlMjVjLTQ5NTEtNDFhMi05NzQyLWMxYzA3ZDY2OTVhMyIsImMiOjR9" frameborder="0" allowFullScreen="true" data-astro-cid-de6dxiz5></iframe> </section> </main> ` })} `;
 }, "C:/Users/greg/dev/datathon2Bio/src/pages/animalae.astro", void 0);
 
 const $$file = "C:/Users/greg/dev/datathon2Bio/src/pages/animalae.astro";

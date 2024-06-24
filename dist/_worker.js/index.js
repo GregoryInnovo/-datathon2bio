@@ -1,16 +1,16 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_C77gLJlN.mjs';
-import { c as createExports, b as serverEntrypointModule } from './chunks/@astrojs_CP8W6PcL.mjs';
+import { manifest } from './manifest_RdhCsUmm.mjs';
+import { c as createExports, b as serverEntrypointModule } from './chunks/@astrojs_Cf9oxj1T.mjs';
 import { onRequest } from './_noop-middleware.mjs';
 
 const _page0 = () => import('./renderers.mjs').then(n => n.i);
-const _page1 = () => import('./chunks/animalae_D1HY7NQd.mjs');
-const _page2 = () => import('./chunks/authors_JgR0bFKL.mjs');
-const _page3 = () => import('./chunks/explore_CQPbg0CL.mjs');
-const _page4 = () => import('./chunks/fungi_Cuidlc4Y.mjs');
-const _page5 = () => import('./chunks/plantae_DSSjgFBE.mjs');
-const _page6 = () => import('./chunks/index_D3gO32D6.mjs');
+const _page1 = () => import('./chunks/animalae_Ckdejwaa.mjs');
+const _page2 = () => import('./chunks/authors_HDCE1y7u.mjs');
+const _page3 = () => import('./chunks/explore_CpAms2_R.mjs');
+const _page4 = () => import('./chunks/fungi_DI67XKiS.mjs');
+const _page5 = () => import('./chunks/plantae_BJn2kpJt.mjs');
+const _page6 = () => import('./chunks/index_sc29tDJ1.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/animalae.astro", _page1],

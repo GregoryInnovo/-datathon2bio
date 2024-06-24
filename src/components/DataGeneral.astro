@@ -1,5 +1,5 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, img1 } = Astro.props;
 ---
 
 <section class="mt-1">
@@ -16,8 +16,9 @@ const { title, description } = Astro.props;
     </div>
     <div class="grid grid-cols-2 gap-4 mt-8">
       <img
-        class="w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+        class="object-cover rounded-lg w-45 h-3/4"
+        src={img1 ||
+          "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"}
         alt="office content 1"
       />
       <img
