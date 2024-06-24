@@ -1,5 +1,5 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
-import '../@astrojs_Cf9oxj1T.mjs';
+import '../@astrojs_Cu8H2S4g.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, b as renderSlot, d as renderComponent, e as createAstro, f as addAttribute, u as unescapeHTML, F as Fragment, g as renderHead } from '../../renderers.mjs';
 import '../kleur_BcFxsYqz.mjs';
 /* empty css                             */

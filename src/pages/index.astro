@@ -8,32 +8,31 @@ const images = [
   "assets/images/img2.jpg",
   "assets/images/img3.jpg",
   "assets/images/img4.jpg",
+  "assets/images/img5.jpg",
+  "assets/images/img6.jpg",
+  "assets/images/img6.jpg",
+  "assets/images/img5.jpg",
+  "assets/images/img4.jpg",
+  "assets/images/img3.jpg",
+  "assets/images/img2.jpg",
+  "assets/images/img1.jpg",
   "assets/images/img1.jpg",
   "assets/images/img2.jpg",
   "assets/images/img3.jpg",
   "assets/images/img4.jpg",
-  "assets/images/img1.jpg",
-  "assets/images/img2.jpg",
-  "assets/images/img3.jpg",
+  "assets/images/img5.jpg",
+  "assets/images/img6.jpg",
+  "assets/images/img6.jpg",
+  "assets/images/img5.jpg",
   "assets/images/img4.jpg",
-  "assets/images/img1.jpg",
-  "assets/images/img2.jpg",
   "assets/images/img3.jpg",
-  "assets/images/img4.jpg",
-  "assets/images/img1.jpg",
   "assets/images/img2.jpg",
-  "assets/images/img3.jpg",
-  "assets/images/img4.jpg",
   "assets/images/img1.jpg",
-  "assets/images/img2.jpg",
-  "assets/images/img3.jpg",
-  "assets/images/img4.jpg",
-  // Añade todas las rutas de tus imágenes aquí
 ];
 
 const importantValues = [
   {
-    title: "32,877",
+    title: "83,240",
     description: "Registros de biodiversidad",
     icon: "assets/icons/total.png",
   },
@@ -68,11 +67,26 @@ const importantValues = [
             <img
               src={src}
               alt="Image"
-              class="object-cover w-full h-full filter "
+              class="object-cover w-full h-full filter blur-sm"
             />
           </div>
         ))
       }
+      <img
+        src={"assets/images/a1.png"}
+        alt="a1"
+        class="w-1/2 h-auto absolute top-10 right-0"
+      />
+      <img
+        src={"assets/images/a2.png"}
+        alt="a1"
+        class="w-1/2 h-auto absolute top-60 left-0"
+      />
+      <img
+        src={"assets/images/a3.png"}
+        alt="a1"
+        class="w-11/12 h-auto absolute bottom-0 blur-sm"
+      />
     </div>
   </section>
   <main>
@@ -92,6 +106,7 @@ const importantValues = [
       title="Reino"
       description="En el campo de la biología, un reino es una clasificación que agrupa a organismos basándose en características fundamentales compartidas, tales como la estructura de sus células, su forma de obtener energía y su reproducción. Por ejemplo, el reino Animalia incluye seres vivos que se alimentan de otros organismos y tienen la capacidad de moverse, mientras que el reino Plantae consta de organismos que generan su propio alimento a través de la fotosíntesis. Los reinos son esenciales para entender cómo los distintos tipos de vida en la Tierra están relacionados entre sí y cómo han evolucionado a lo largo del tiempo."
       img1="https://images.pexels.com/photos/21071283/pexels-photo-21071283/free-photo-of-madera-naturaleza-animal-hierba.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      img2="https://images.pexels.com/photos/22610593/pexels-photo-22610593/free-photo-of-reflexionando-sobre-los-primates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     />
 
     <section class="mt-1">
@@ -127,16 +142,11 @@ const importantValues = [
             </li>
           </ol>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="mt-8">
           <img
-            class="w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+            class="object-cover rounded-lg w-full h-3/4"
+            src="https://images.pexels.com/photos/4825671/pexels-photo-4825671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="office content 1"
-          />
-          <img
-            class="mt-4 w-full lg:mt-10 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-            alt="office content 2"
           />
         </div>
       </div>
@@ -145,6 +155,8 @@ const importantValues = [
     <DataGeneral
       title="Clase"
       description="En biología, la clase es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se ubica entre el filo y el orden. Agrupa a organismos que comparten un conjunto de rasgos distintivos y un ancestro común. Por ejemplo, la clase Mammalia (mamíferos) incluye a todos los animales que poseen glándulas mamarias para alimentar a sus crías con leche. La clasificación en clases ayuda a organizar la diversidad biológica y refleja la historia evolutiva y las relaciones entre diferentes grupos de seres vivos."
+      img1="https://images.pexels.com/photos/26229810/pexels-photo-26229810/free-photo-of-merlin-paloma-halcon.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      img2="https://images.pexels.com/photos/26077123/pexels-photo-26077123/free-photo-of-edificio-animal-vaso-cristal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     />
     <DataGeneral
       title="Orden"
