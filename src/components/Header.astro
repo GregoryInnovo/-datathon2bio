@@ -2,10 +2,18 @@
 import Container from "./Container.astro";
 
 const menuItems = [
-  // { href: "animalae", text: "Animalae" },
-  // { href: "plantae", text: "Plantae" },
   { href: "/", text: "Inicio" },
   { href: "/authors", text: "Autores" },
+  {
+    href: "#",
+    text: "Reinos",
+    isDropdown: true,
+    dropdownItems: [
+      { href: "/animalae", text: "Animalae" },
+      { href: "/plantae", text: "Plantae" },
+      { href: "/fungi", text: "Fungi" },
+    ],
+  },
   {
     href: "explore",
     text: "Explora la biodiversidad de Colombia",
@@ -99,18 +107,56 @@ const headerText = pageTexts[currentPage] || pageTexts.index;
               class="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0"
             >
               {
-                menuItems.map((item) =>
-                  !item.isButton ? (
-                    <li>
+                menuItems.map((item) => (
+                  <li class="relative group">
+                    {item.isDropdown ? (
+                      <>
+                        <button class="flex items-center block md:px-4 transition hover:text-primary">
+                          <span>{item.text}</span>
+                          <svg
+                            class="w-4 h-4 ml-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out">
+                          <div
+                            class="py-1"
+                            role="menu"
+                            aria-orientation="vertical"
+                            aria-labelledby="options-menu"
+                          >
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <a
+                                href={dropdownItem.href}
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                role="menuitem"
+                              >
+                                {dropdownItem.text}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    ) : !item.isButton ? (
                       <a
                         href={item.href}
                         class="block md:px-4 transition hover:text-primary"
                       >
                         <span>{item.text}</span>
                       </a>
-                    </li>
-                  ) : null
-                )
+                    ) : null}
+                  </li>
+                ))
               }
             </ul>
           </div>
@@ -154,5 +200,36 @@ const headerText = pageTexts[currentPage] || pageTexts.index;
     nav {
       background-color: #006b41;
     }
+
+    .group:hover .absolute {
+      display: block;
+    }
+
+    .group .absolute {
+      display: none;
+    }
   </style>
+
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const dropdowns = document.querySelectorAll(".group");
+
+      dropdowns.forEach((dropdown) => {
+        let timeout;
+
+        dropdown.addEventListener("mouseenter", () => {
+          clearTimeout(timeout);
+          dropdown.querySelector(".absolute").classList.add("block");
+          dropdown.querySelector(".absolute").classList.remove("hidden");
+        });
+
+        dropdown.addEventListener("mouseleave", () => {
+          timeout = setTimeout(() => {
+            dropdown.querySelector(".absolute").classList.remove("block");
+            dropdown.querySelector(".absolute").classList.add("hidden");
+          }, 300); // 300ms delay before hiding
+        });
+      });
+    });
+  </script>
 </header>
