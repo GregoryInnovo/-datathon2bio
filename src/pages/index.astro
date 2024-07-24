@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ImportantValue from "../components/ImportantValue.astro";
 import DataGeneral from "../components/DataGeneral.astro";
 import Carousel from "../components/Carousel";
+import Insight from "../components/Insight.astro";
 
 const images = [
   "assets/images/img1.jpg",
@@ -52,6 +53,29 @@ const importantValues = [
   //   description: "Especies de aves",
   //   icon: "/public/icons/bird.png",
   // },
+];
+
+const insightValues = [
+  {
+    title: "Reino",
+    description:
+      "Un reino es una clasificación que agrupa a organismos basándose en características fundamentales compartidas",
+    img: "https://images.pexels.com/photos/21071283/pexels-photo-21071283/free-photo-of-madera-naturaleza-animal-hierba.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    data: "Reino",
+  },
+  {
+    title: "Filo",
+    description: `Un filo es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se
+            encuentra entre el reino y la clase.`,
+    img: "https://images.pexels.com/photos/4825671/pexels-photo-4825671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    data: "Filo",
+  },
+  {
+    title: "Clase",
+    description: `La clase es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se ubica entre el filo y el orden.`,
+    img: "https://images.pexels.com/photos/26229810/pexels-photo-26229810/free-photo-of-merlin-paloma-halcon.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    data: "Clase",
+  },
 ];
 
 const dataGeneralList = [
@@ -136,22 +160,6 @@ const dataGeneralList = [
     </div>
   </section>
   <main>
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRogU_VlhrQF8lnqhr_0bg2uv2yR9EO2MUgg&s"
-            alt="Avatar"
-            style="width:300px;height:300px;"
-          />
-        </div>
-        <div class="flip-card-back">
-          <h1>Listo</h1>
-          <p>insigth</p>
-          <p>1</p>
-        </div>
-      </div>
-    </div>
     <section class="flex flex-row flex-wrap w-full justify-between">
       {
         importantValues.map((value) => (
@@ -160,6 +168,13 @@ const dataGeneralList = [
             description={value.description}
             icon={value.icon}
           />
+        ))
+      }
+    </section>
+    <section class="flex flex-row flex-wrap w-full justify-between mt-4">
+      {
+        insightValues.map((value) => (
+          <Insight title={value.title} description={value.description} />
         ))
       }
     </section>
@@ -298,51 +313,5 @@ const dataGeneralList = [
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 2rem;
     padding: 0;
-  }
-
-  .flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-    font-family: Arial, sans-serif;
-  }
-
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-
-  .flip-card-front {
-    background-color: #bbb;
-    color: black;
-  }
-
-  .flip-card-back {
-    background-color: #2980b9;
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
   }
 </style>
