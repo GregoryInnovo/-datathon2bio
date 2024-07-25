@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
+
 interface Props {
   title: string;
   currentPage?: string; // Add this line
@@ -21,9 +23,17 @@ const { title, currentPage = "index" } = Astro.props; // Modify this line
     <ViewTransitions />
   </head>
   <body>
-    <Header currentPage={currentPage} />
-    <slot />
-    <Footer />
+    <div class="flex">
+      <Sidebar />
+      <div class="flex-1">
+        <Header currentPage={currentPage} />
+        <main>
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+
     <style is:global>
       :root {
         --accent: 136, 58, 234;

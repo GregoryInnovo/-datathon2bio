@@ -11,11 +11,61 @@
       class="flex flex-wrap items-center mt-3 text-sm font-medium text-white sm:mt-0"
     >
       <li>
-        <a href="#" class="hover:underline me-4 md:me-6">Metodología</a>
+        <a
+          href="https://docs.google.com/document/d/1I8Gb813jIDjZTfY2UxIewdXQ3B3kYu7qpwGomg0rz_4/edit?usp=drive_link"
+          class="hover:underline me-4 md:me-6">Metodología</a
+        >
       </li>
       <li>
-        <a href="#" class="hover:underline me-4 md:me-6">Como citar</a>
+        <a href="#" class="hover:underline me-4 md:me-6" id="cite-link"
+          >Como citar</a
+        >
       </li>
     </ul>
+    <dialog id="cite-dialog">
+      <div class="dialog-content">
+        <p>
+          Aguilar, L., Murcia, G., Murgueitio, S., & Ortiz, S. (2024). Explora
+          la biodiversidad de Colombia. Hyperion.
+        </p>
+        <button id="close-dialog">Cerrar</button>
+      </div>
+    </dialog>
   </div>
 </footer>
+
+<style>
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .dialog-content {
+    padding: 1em;
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  #close-dialog {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const citeLink = document.getElementById("cite-link");
+  const citeDialog = document.getElementById("cite-dialog");
+  const closeDialog = document.getElementById("close-dialog");
+
+  citeLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    citeDialog.showModal();
+  });
+
+  closeDialog.addEventListener("click", () => {
+    citeDialog.close();
+  });
+</script>

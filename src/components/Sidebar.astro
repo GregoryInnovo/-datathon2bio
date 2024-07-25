@@ -1,0 +1,225 @@
+---
+
+---
+
+<aside
+  id="sidebar"
+  class="fixed left-0 top-0 h-full w-12 bg-gray-700 text-white transition-all duration-300 ease-in-out hover:w-64 overflow-hidden z-50"
+>
+  <div class="flex flex-col h-full p-2">
+    <div class="mb-4">
+      <button
+        id="playSound1"
+        class="w-full mb-2 p-2 bg-blue-500 rounded hover:bg-blue-600 flex items-center justify-center"
+      >
+        <span class="icon">🔊</span>
+        <span class="text hidden">Sonido Jungla</span>
+      </button>
+      <input
+        type="range"
+        id="volumeControl1"
+        min="0"
+        max="1"
+        step="0.1"
+        value="1"
+        class="w-full mb-1"
+      />
+      <label class="flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          id="loopAudio1"
+          class="form-checkbox h-4 w-4 text-blue-600"
+        />
+        <span class="text text-xs ml-2 hidden">Repetir</span>
+      </label>
+    </div>
+    <div class="mb-4">
+      <button
+        id="playSound2"
+        class="w-full mb-2 p-2 bg-blue-500 rounded hover:bg-blue-600 flex items-center justify-center"
+      >
+        <span class="icon">🔊</span>
+        <span class="text hidden">Sonido Oceano</span>
+      </button>
+      <input
+        type="range"
+        id="volumeControl2"
+        min="0"
+        max="1"
+        step="0.1"
+        value="1"
+        class="w-full mb-1"
+      />
+      <label class="flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          id="loopAudio2"
+          class="form-checkbox h-4 w-4 text-blue-600"
+        />
+        <span class="text text-xs ml-2 hidden">Repetir</span>
+      </label>
+    </div>
+    <button
+      id="playText"
+      class="mb-4 p-2 bg-green-500 rounded hover:bg-green-600 flex items-center justify-center"
+    >
+      <span class="icon">🗣️</span>
+      <span class="text hidden">Empezar a hablar</span>
+    </button>
+    <button
+      id="muteAll"
+      class="mt-auto p-2 bg-red-500 rounded hover:bg-red-600 flex items-center justify-center"
+    >
+      <span class="icon">🔇</span>
+      <span class="text hidden">Silenciar todo</span>
+    </button>
+  </div>
+</aside>
+
+<style>
+  #sidebar:hover .text {
+    display: inline-block;
+  }
+  #sidebar:hover .icon {
+    display: none;
+  }
+  /* Asegúrate de que los controles de volumen y el checkbox sean visibles incluso cuando la barra esté contraída */
+  #sidebar:not(:hover) input[type="range"],
+  #sidebar:not(:hover) input[type="checkbox"] {
+    width: 30px;
+  }
+</style>
+
+<script>
+  let audio1: HTMLAudioElement | null = null;
+  let audio2: HTMLAudioElement | null = null;
+  let speechSynthesis = window.speechSynthesis;
+
+  function setupAudioControls(
+    buttonId: string,
+    audioPath: string,
+    volumeControlId: string,
+    loopCheckboxId: string,
+    otherButtonId: string
+  ) {
+    const playButton = document.getElementById(buttonId) as HTMLButtonElement;
+    const otherButton = document.getElementById(
+      otherButtonId
+    ) as HTMLButtonElement;
+    const volumeControl = document.getElementById(
+      volumeControlId
+    ) as HTMLInputElement;
+    const loopCheckbox = document.getElementById(
+      loopCheckboxId
+    ) as HTMLInputElement;
+    let audio: HTMLAudioElement | null = null;
+
+    function updateButtonText(button: HTMLButtonElement, isPlaying: boolean) {
+      const iconSpan = button.querySelector(".icon") as HTMLSpanElement;
+      const textSpan = button.querySelector(".text") as HTMLSpanElement;
+      if (isPlaying) {
+        iconSpan.textContent = "⏸️";
+        textSpan.textContent = "Pausar";
+      } else {
+        iconSpan.textContent = "▶️";
+        textSpan.textContent =
+          button === playButton ? "Sonido Jungla" : "Sonido Oceano";
+      }
+    }
+
+    playButton.addEventListener("click", () => {
+      if (audio && !audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;
+        updateButtonText(playButton, false);
+      } else {
+        if (audio1 && audio1 !== audio) {
+          audio1.pause();
+          audio1.currentTime = 0;
+          updateButtonText(otherButton, false);
+        }
+        if (audio2 && audio2 !== audio) {
+          audio2.pause();
+          audio2.currentTime = 0;
+          updateButtonText(otherButton, false);
+        }
+        audio = new Audio(audioPath);
+        audio.volume = parseFloat(volumeControl.value);
+        audio.loop = loopCheckbox.checked;
+        audio.play();
+        updateButtonText(playButton, true);
+        if (buttonId === "playSound1") audio1 = audio;
+        else audio2 = audio;
+      }
+    });
+
+    volumeControl.addEventListener("input", () => {
+      if (audio) {
+        audio.volume = parseFloat(volumeControl.value);
+      }
+    });
+
+    loopCheckbox.addEventListener("change", () => {
+      if (audio) {
+        audio.loop = loopCheckbox.checked;
+      }
+    });
+  }
+
+  setupAudioControls(
+    "playSound1",
+    "/sounds/jungle.mp3",
+    "volumeControl1",
+    "loopAudio1",
+    "playSound2"
+  );
+  setupAudioControls(
+    "playSound2",
+    "/sounds/ocean-wave.mp3",
+    "volumeControl2",
+    "loopAudio2",
+    "playSound1"
+  );
+
+  document.getElementById("playText")?.addEventListener("click", () => {
+    if (speechSynthesis.speaking) speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(
+      "Para abordar este reto, comenzamos por buscar fuentes de información confiables a nivel nacional, asegurándonos de que fueran respaldadas por la comunidad académica. Inicialmente, recurrimos a Datos Abiertos. Sin embargo, su cobertura sobre biodiversidad era limitada, por lo que, exploramos el recurso proporcionado durante la datathon; SiB Colombia, con la limitación de que estaba restringido a seis localidades (en el momento que se propuso el reto): 4 municipios, un resguardo indígena y una reserva forestal en cuanto a cifras, este nos ofreció una base sólida. No obstante, descubrimos que la página del SiB se alimentaba de una fuente mayor y más global: GBIF (Global Biodiversity Information Facility), una base de datos mundial avalada por la comunidad científica."
+    );
+    utterance.lang = "es-ES";
+    speechSynthesis.speak(utterance);
+  });
+
+  document.getElementById("muteAll")?.addEventListener("click", () => {
+    if (audio1) {
+      audio1.pause();
+      audio1.currentTime = 0;
+    }
+    if (audio2) {
+      audio2.pause();
+      audio2.currentTime = 0;
+    }
+    speechSynthesis.cancel();
+    updateButtonText(
+      document.getElementById("playSound1") as HTMLButtonElement,
+      false
+    );
+    updateButtonText(
+      document.getElementById("playSound2") as HTMLButtonElement,
+      false
+    );
+  });
+
+  function updateButtonText(button: HTMLButtonElement, isPlaying: boolean) {
+    const iconSpan = button.querySelector(".icon") as HTMLSpanElement;
+    const textSpan = button.querySelector(".text") as HTMLSpanElement;
+    if (isPlaying) {
+      iconSpan.textContent = "⏸️";
+      textSpan.textContent = "Pausar";
+    } else {
+      iconSpan.textContent = "▶️";
+      textSpan.textContent =
+        button.id === "playSound1" ? "Sonido Jungla" : "Sonido Oceano";
+    }
+  }
+</script>
