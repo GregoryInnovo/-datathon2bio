@@ -96,9 +96,8 @@ const DataGeneral = ({ title, description, img1, img2 }) => (
       {title}
     </h2>
     <p>{description}</p>
-    <div className="flex space-x-4 mt-4">
+    <div className="flex items-center space-x-4 mt-4 m-auto justify-center">
       {img1 && <img src={img1} alt={title} className="w-1/2 h-auto rounded" />}
-      {img2 && <img src={img2} alt={title} className="w-1/2 h-auto rounded" />}
     </div>
   </div>
 );

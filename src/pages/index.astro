@@ -160,7 +160,7 @@ const dataGeneralList = [
     </div>
   </section>
   <main>
-    <section class="flex flex-row flex-wrap w-full justify-between">
+    <section class="flex flex-col sm:flex-row w-full justify-between">
       {
         importantValues.map((value) => (
           <ImportantValue
@@ -171,7 +171,10 @@ const dataGeneralList = [
         ))
       }
     </section>
-    <section class="flex flex-row flex-wrap w-full justify-between mt-4">
+    <section
+      class="flex flex-col lg:flex-row flex-wrap w-4/5 justify-between mx-auto
+    items-center"
+    >
       {
         insightValues.map((value) => (
           <Insight title={value.title} description={value.description} />

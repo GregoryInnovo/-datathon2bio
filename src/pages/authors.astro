@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import img1 from "../components/authors/auth1.jpg";
+import img3 from "../components/authors/auth3.JPG";
+import img4 from "../components/authors/auth4.jpg";
 
 const authors = [
   {
     name: "Juan Sebastian Ortiz",
     role: "Análisis de Datos",
-    avatar: "assets/images/authors/auth1.jpg",
+    avatar: img1,
     description: "Ningún dato es irrelevante.",
     linkedin:
       "https://www.linkedin.com/in/juan-sebasti%C3%A1n-ortiz-guerrero-782566186/",
@@ -14,14 +18,14 @@ const authors = [
   {
     name: "Leandra Aguilar",
     role: "Análisis de Datos",
-    avatar: "assets/images/authors/auth2.jpg",
+    avatar: img3,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla veniam voluptates minima.",
   },
   {
     name: "Santiago Murgueitio ",
     role: "Data Scientist",
-    avatar: "assets/images/authors/auth3.JPG",
+    avatar: img3,
     description:
       "Mi tarea es hacer que los datos hablen y cuenten historias que todos puedan entender.",
     github: "https://github.com/lapiceroazul4",
@@ -30,7 +34,7 @@ const authors = [
   {
     name: "Gregson Murcia",
     role: "Desarrollador Fullstack",
-    avatar: "assets/images/authors/auth4.jpg",
+    avatar: img4,
     description: "Si se puede imaginar, se puede programar.",
     github: "https://github.com/GregoryInnovo",
     linkedin: "https://www.linkedin.com/in/gregson-murcia-castro-b527a31a6/",
@@ -53,7 +57,7 @@ const authors = [
           authors.map((author) => (
             <div class="flex items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-green-800 dark:border-gray-700">
               <a href="#">
-                <img
+                <Image
                   class="w-72 h-48 object-cover rounded-lg sm:rounded-none sm:rounded-l-lg"
                   src={author.avatar}
                   alt={`${author.name} Avatar`}

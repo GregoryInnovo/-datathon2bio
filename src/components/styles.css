@@ -53,12 +53,12 @@
 }
 
 .arrow--left {
-  left: -65px;
+  left: 35px;
 }
 
 .arrow--right {
   left: auto;
-  right: -65px;
+  right: 35px;
 }
 
 .arrow--disabled {
