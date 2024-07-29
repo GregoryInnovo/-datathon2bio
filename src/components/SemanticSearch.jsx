@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
+import { API_URL } from "../config/api"; // Asegúrate de que esta ruta sea correcta
 import "./styles.css";
 
 const SemanticSearch = () => {
@@ -15,7 +16,7 @@ const SemanticSearch = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.post("http://localhost:8000/search", {
+      const response = await axios.post(API_URL, {
         text: query,
         n: numResults,
       });
