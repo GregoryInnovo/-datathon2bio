@@ -8,7 +8,7 @@ const SemanticSearch = () => {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [numResults, setNumResults] = useState(5);
+  const [numResults, setNumResults] = useState(2);
   const [selectedProvince, setSelectedProvince] = useState("all");
   const [selectedClass, setSelectedClass] = useState("all");
   const [selectedSpecies, setSelectedSpecies] = useState(null);
