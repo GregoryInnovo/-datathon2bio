@@ -10,6 +10,7 @@ const SemanticSearch = () => {
   const [error, setError] = useState(null);
   const [numResults, setNumResults] = useState(5);
   const [selectedProvince, setSelectedProvince] = useState("all");
+  const [selectedClass, setSelectedClass] = useState("all");
   const [selectedSpecies, setSelectedSpecies] = useState(null);
 
   const handleSearch = async () => {
@@ -29,10 +30,26 @@ const SemanticSearch = () => {
     }
   };
 
-  const filteredResults =
-    selectedProvince === "all"
-      ? results
-      : results.filter((result) => result.stateProvince === selectedProvince);
+  const filteredResults = useMemo(() => {
+    return results.filter(
+      (result) =>
+        (selectedProvince === "all" ||
+          result.stateProvince === selectedProvince) &&
+        (selectedClass === "all" || result.class === selectedClass)
+    );
+  }, [results, selectedProvince, selectedClass]);
+
+  const classCounts = useMemo(() => {
+    return results.reduce((acc, result) => {
+      acc[result.class] = (acc[result.class] || 0) + 1;
+      return acc;
+    }, {});
+  }, [results]);
+
+  const uniqueClasses = useMemo(
+    () => Array.from(new Set(results.map((result) => result.class))),
+    [results]
+  );
 
   const provinceCounts = useMemo(() => {
     const counts = results.reduce((acc, result) => {
@@ -55,19 +72,23 @@ const SemanticSearch = () => {
 
   return (
     <div className="p-4">
-      <div className="flex space-x-4 mb-4">
+      <p className="text-md mb-4">
+        Digita tu búsqueda por descripción, características, nombre científico,
+        etc.
+      </p>
+      <div className="flex flex-col lg:flex-row space-x-4 mb-4">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ingrese su búsqueda (por descripción, características, nombre científico, etc.)"
-          className="w-full p-2 border rounded"
+          placeholder="Ingrese su búsqueda"
+          className="w-full p-2 border rounded mb-2 lg:mb-0"
         />
         <select
           value={numResults}
           onChange={(e) => setNumResults(parseInt(e.target.value))}
-          className="p-2 border rounded"
+          className="p-2 border rounded mb-2 lg:mb-0"
         >
           <option value={2}>2 resultados</option>
           <option value={4}>4 resultados</option>
@@ -77,17 +98,14 @@ const SemanticSearch = () => {
         <button
           onClick={handleSearch}
           disabled={isLoading}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 lg:mb-0"
         >
           {isLoading ? "Buscando..." : "Buscar"}
         </button>
-      </div>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
-      <div className="mb-4">
         <select
           value={selectedProvince}
           onChange={(e) => setSelectedProvince(e.target.value)}
-          className="p-2 border rounded"
+          className="p-2 border rounded mb-2 lg:mb-0"
         >
           <option value="all">Todos los estados/provincias</option>
           {uniqueProvinces.map((province, index) => (
@@ -96,8 +114,21 @@ const SemanticSearch = () => {
             </option>
           ))}
         </select>
+        <select
+          value={selectedClass}
+          onChange={(e) => setSelectedClass(e.target.value)}
+          className="p-2 border rounded mb-2 md:mb-0"
+        >
+          <option value="all">Todas las clases</option>
+          {uniqueClasses.map((className, index) => (
+            <option key={index} value={className}>
+              {className} ({classCounts[className] || 0})
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {error && <p className="text-red-500 mt-2">{error}</p>}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredResults.map((result, index) => (
           <div
             key={index}

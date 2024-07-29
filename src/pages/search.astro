@@ -1,6 +1,29 @@
 ---
+import Insight from "../components/Insight.astro";
 import SemanticSearch from "../components/SemanticSearch";
 import Layout from "../layouts/Layout.astro";
+
+const insightValues = [
+  {
+    title: "Datos",
+    description:
+      "Explor 40 especies de animales que se encuentran en Colombia.",
+    img: "https://cdn0.ecologiaverde.com/es/posts/0/6/3/clasificacion_del_reino_animalia_2360_2_600.jpg",
+    data: "Reino",
+  },
+  {
+    title: "Filtros",
+    description: `Filtra por característica específica de una especie, como color, tamaño, forma, etc.`,
+    img: "https://latam.kaspersky.com/content/es-mx/images/repository/isc/2017-images/virus-img-08.jpg",
+    data: "Filo",
+  },
+  {
+    title: "Multi idioma",
+    description: `Busca en cualquier idioma y encuentra la especie que buscas.`,
+    img: "https://s1.significados.com/foto/idioma-og.jpg?class=ogImageSquare",
+    data: "Filo",
+  },
+];
 ---
 
 <html lang="es">
@@ -13,7 +36,23 @@ import Layout from "../layouts/Layout.astro";
   </head>
   <body>
     <Layout title="Buscador Semántico" currentPage="search">
-      <main class="container mx-auto p-4">
+      <section class="relative inset-x-0 bottom-36">
+        <section
+          class="flex flex-col lg:flex-row flex-wrap w-4/5 justify-between mx-auto
+      items-center"
+        >
+          {
+            insightValues.map((value) => (
+              <Insight
+                title={value.title}
+                description={value.description}
+                img={value.img}
+              />
+            ))
+          }
+        </section>
+      </section>
+      <main class="container mx-auto md:p-4">
         <h1 class="text-3xl font-bold mb-4">Buscador Semántico</h1>
         <SemanticSearch client:load />
       </main>

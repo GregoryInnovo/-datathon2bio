@@ -21,7 +21,7 @@ const { title, currentPage = "index" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
-    <script src="/scripts/sidebar.js" is:inline></script>
+    <script src="/scripts/globalAudio.js" is:inline></script>
   </head>
   <body>
     <div class="flex">
@@ -48,7 +48,10 @@ const { title, currentPage = "index" } = Astro.props;
         );
       }
       html {
-        font-family: system-ui, sans-serif;
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         /* background: #2da474; */
         /* background: #13151a; */
         background-size: 224px;
