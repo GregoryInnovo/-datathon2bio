@@ -1,0 +1,22 @@
+---
+import SemanticSearch from "../components/SemanticSearch";
+import Layout from "../layouts/Layout.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Buscador Semántico</title>
+  </head>
+  <body>
+    <Layout title="Buscador Semántico" currentPage="search">
+      <main class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Buscador Semántico</h1>
+        <SemanticSearch client:load />
+      </main>
+    </Layout>
+  </body>
+</html>

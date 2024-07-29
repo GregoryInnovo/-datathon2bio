@@ -6,9 +6,9 @@ import Sidebar from "../components/Sidebar.astro";
 
 interface Props {
   title: string;
-  currentPage?: string; // Add this line
+  currentPage?: string;
 }
-const { title, currentPage = "index" } = Astro.props; // Modify this line
+const { title, currentPage = "index" } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,6 +21,7 @@ const { title, currentPage = "index" } = Astro.props; // Modify this line
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
+    <script src="/scripts/sidebar.js" is:inline></script>
   </head>
   <body>
     <div class="flex">

@@ -71,3 +71,8 @@ body {
 .arrow--disabled {
   fill: rgba(73, 73, 73, 0.505);
 }
+
+#container-description {
+  max-height: 220px;
+  overflow-y: auto;
+}
