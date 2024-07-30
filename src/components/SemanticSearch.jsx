@@ -14,6 +14,11 @@ const SemanticSearch = () => {
   const [selectedSpecies, setSelectedSpecies] = useState(null);
 
   const handleSearch = async () => {
+    if (query.trim() === "") {
+      setError("El campo de búsqueda no puede estar vacío");
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     try {
@@ -129,6 +134,7 @@ const SemanticSearch = () => {
           ))}
         </select>
       </div>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredResults.map((result, index) => (
           <div

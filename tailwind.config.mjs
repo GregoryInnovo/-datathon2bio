@@ -12,7 +12,7 @@ export default {
         "text-default": "#333",
       },
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       },
       backgroundSize: {
         custom: "224px",
