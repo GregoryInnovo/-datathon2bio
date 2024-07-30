@@ -1,0 +1,130 @@
+---
+
+---
+
+<div class="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+  <div class="relative">
+    <!-- Contenedor del carrusel -->
+    <div
+      class="flex overflow-x-hidden snap-x snap-mandatory"
+      id="carousel-container"
+    >
+      <!-- Imágenes del carrusel -->
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC3rfJrKWyXB02JJADPgFRtXKGbabn0GMq4g&s"
+        alt="Imagen 1"
+        class="w-full flex-shrink-0 snap-center object-cover h-64"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZx2tYZNybWW2ifxY6Xn8owhXW1iXZK5vfgA&s"
+        alt="Imagen 2"
+        class="w-full flex-shrink-0 snap-center object-cover h-64"
+      />
+      <img
+        src="https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_SuperMarioHub_image1600w.jpg"
+        alt="Imagen 3"
+        class="w-full flex-shrink-0 snap-center object-cover h-64"
+      />
+    </div>
+    <!-- Flechas de navegación -->
+    <button
+      id="prev-btn"
+      class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10"
+    >
+      &#9664;
+    </button>
+    <button
+      id="next-btn"
+      class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10"
+    >
+      &#9654;
+    </button>
+    <!-- Indicadores de página -->
+    <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+      <div class="w-2 h-2 rounded-full bg-white opacity-50"></div>
+      <div class="w-2 h-2 rounded-full bg-white"></div>
+      <div class="w-2 h-2 rounded-full bg-white opacity-50"></div>
+    </div>
+  </div>
+  <!-- Pie del carrusel -->
+  <div class="p-4">
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center space-x-2">
+        <img
+          src="https://via.placeholder.com/32"
+          alt="Avatar"
+          class="w-8 h-8 rounded-full"
+        />
+        <span class="font-semibold text-sm">usuario123</span>
+      </div>
+      <button class="text-blue-500 font-semibold text-sm">Seguir</button>
+    </div>
+    <p class="text-sm">Descripción de la publicación...</p>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById("carousel-container");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const slides = container.children;
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const slideWidth = slides[0].offsetWidth;
+    container.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    updateIndicators();
+  }
+
+  function moveNext() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function movePrev() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function updateIndicators() {
+    const indicators = document.querySelectorAll(".bottom-4 > div");
+    indicators.forEach((indicator, index) => {
+      if (index === currentIndex) {
+        indicator.classList.remove("opacity-50");
+      } else {
+        indicator.classList.add("opacity-50");
+      }
+    });
+  }
+
+  nextBtn.addEventListener("click", moveNext);
+  prevBtn.addEventListener("click", movePrev);
+
+  // Auto-sliding
+  let intervalId = setInterval(moveNext, 5000);
+
+  // Pause auto-sliding on hover
+  container.addEventListener("mouseenter", () => {
+    clearInterval(intervalId);
+  });
+
+  container.addEventListener("mouseleave", () => {
+    intervalId = setInterval(moveNext, 5000);
+  });
+
+  // Initial setup
+  updateCarousel();
+
+  // Responsive: Update carousel on window resize
+  window.addEventListener("resize", updateCarousel);
+</script>
+
+<style>
+  #carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  #carousel-container > img {
+    flex: 0 0 100%;
+  }
+</style>

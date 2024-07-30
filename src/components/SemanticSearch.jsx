@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
-import { API_URL } from "../config/api"; // Asegúrate de que esta ruta sea correcta
+import { API_URL } from "../config/api";
 import "./styles.css";
 
 const SemanticSearch = () => {
@@ -72,6 +72,8 @@ const SemanticSearch = () => {
 
   return (
     <div className="p-4">
+      <h1 class="text-3xl font-bold mb-4">Buscador Semántico</h1>
+
       <p className="text-md mb-4">
         Digita tu búsqueda por descripción, características, nombre científico,
         etc.
@@ -98,7 +100,7 @@ const SemanticSearch = () => {
         <button
           onClick={handleSearch}
           disabled={isLoading}
-          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 lg:mb-0"
+          className="bg-ocean text-white px-4 py-2 rounded mb-2 lg:mb-0"
         >
           {isLoading ? "Buscando..." : "Buscar"}
         </button>
@@ -127,29 +129,38 @@ const SemanticSearch = () => {
           ))}
         </select>
       </div>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredResults.map((result, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded shadow cursor-pointer"
-            onClick={() => setSelectedSpecies(result)}
+            className="relative bg-white rounded shadow overflow-hidden h-64"
           >
-            <h2 className="text-xl font-semibold">
-              {result.verbatimScientificName}
-            </h2>
-            <p>Reino: {result.kingdom}</p>
-            <p>Filo: {result.phylum}</p>
-            <p>Clase: {result.class}</p>
-            <p>Especie: {result.species}</p>
-            <p>Estado/Provincia: {result.stateProvince}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
             {result.image && (
               <img
                 src={result.image}
                 alt={result.verbatimScientificName}
-                className="mt-2 max-w-full h-auto"
+                className="w-full h-full object-cover"
               />
             )}
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <h2 className="text-xl font-semibold mb-2">
+                {result.verbatimScientificName}
+              </h2>
+              <div className="hidden group-hover:block">
+                <p>Reino: {result.kingdom}</p>
+                <p>Filo: {result.phylum}</p>
+                <p>Clase: {result.class}</p>
+                <p>Especie: {result.species}</p>
+                <p>Estado/Provincia: {result.stateProvince}</p>
+              </div>
+              <button
+                onClick={() => setSelectedSpecies(result)}
+                className="mt-2 bg-ocean text-white px-3 py-1 rounded text-sm"
+              >
+                Ver descripción
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -157,23 +168,31 @@ const SemanticSearch = () => {
       {/* Modal */}
       {selectedSpecies && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-5/6">
+          <div className="bg-white p-6 rounded shadow-lg w-5/6 max-h-[90vh] overflow-y-auto">
             <h2 className="text-2xl font-semibold mb-4">
               {selectedSpecies.verbatimScientificName}
             </h2>
             <p className="mb-4" id="container-description">
               {selectedSpecies.description}
             </p>
-            <p className="mb-2">Reino: {selectedSpecies.kingdom}</p>
-            <p className="mb-2">Filo: {selectedSpecies.phylum}</p>
-            <p className="mb-2">Clase: {selectedSpecies.class}</p>
-            <p className="mb-2">Especie: {selectedSpecies.species}</p>
             <p className="mb-2">
-              Estado/Provincia: {selectedSpecies.stateProvince}
+              <strong>Reino:</strong> {selectedSpecies.kingdom}
+            </p>
+            <p className="mb-2">
+              <strong>Filo:</strong> {selectedSpecies.phylum}
+            </p>
+            <p className="mb-2">
+              <strong>Clase:</strong> {selectedSpecies.class}
+            </p>
+            <p className="mb-2">
+              <strong>Especie:</strong> {selectedSpecies.species}
+            </p>
+            <p className="mb-2">
+              <strong>Estado/Provincia:</strong> {selectedSpecies.stateProvince}
             </p>
             <button
               onClick={() => setSelectedSpecies(null)}
-              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+              className="mt-4 bg-ocean text-white px-4 py-2 rounded"
             >
               Cerrar
             </button>
