@@ -1,9 +1,9 @@
 ---
-const { icon, title, description } = Astro.props;
+const { icon, title, valueData } = Astro.props;
 ---
 
-<section class="flex flex-col w-full md:w-48 items-center">
-  <img class="w-20 h-20" src={icon} alt={description} />
-  <h2 class="font-bold">{title}</h2>
-  <a class="text-center font-base text-sm">{description}</a>
+<section class="flex flex-col md:w-48 items-center w-40 h-40">
+  <img class="w-20 h-20" src={icon} alt={valueData} />
+  <h2 class="font-bold">{valueData}</h2>
+  <a class="text-center font-base text-sm">{title}</a>
 </section>
