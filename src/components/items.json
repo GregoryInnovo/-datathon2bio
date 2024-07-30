@@ -1,0 +1,17 @@
+[
+  {
+    "image": "/assets/images/img1.jpg",
+    "title": "Item 1",
+    "description": "Description for Item 1"
+  },
+  {
+    "image": "/assets/images/img2.jpg",
+    "title": "Item 2",
+    "description": "Description for Item 2"
+  },
+  {
+    "image": "/assets/images/img3.jpg",
+    "title": "Item 3",
+    "description": "Description for Item 3"
+  }
+]

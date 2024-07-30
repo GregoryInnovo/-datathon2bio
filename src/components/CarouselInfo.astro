@@ -1,0 +1,127 @@
+---
+
+---
+
+<div class="relative w-full max-w-4xl mx-auto overflow-hidden">
+  <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+    <!-- Carousel items will be dynamically added here -->
+  </div>
+
+  <button
+    id="prevBtn"
+    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+
+  <button
+    id="nextBtn"
+    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+</div>
+
+<!-- Inline script to define the items -->
+<script>
+  const items = [
+    {
+      image: "/assets/images/img1.jpg",
+      title: "Item 1",
+      description: "Description for Item 1",
+    },
+    {
+      image: "https://m.media-amazon.com/images/I/81BAIWfQPZL._SL1500_.jpg",
+      title: "Item 2",
+      description: "Description for Item 2",
+    },
+    {
+      image:
+        "https://elcomercio.pe/resizer/-1MV_KbHFPUxGJNiGGTZ3nwI3GE=/620x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/XIWSVIFFSZDGTJ2THECJ3THMBA.jpg",
+      title: "Item 3",
+      description: "Description for Item 3",
+    },
+    // Add more items as needed
+  ];
+
+  const carousel = document.getElementById("carousel");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  let currentIndex = 0;
+  const totalItems = items.length;
+
+  // Populate the carousel with items
+  carousel.innerHTML = items
+    .map(
+      (item) => `
+    <div class="w-full flex-shrink-0 relative">
+      <img
+        src="${item.image}"
+        alt="${item.title}"
+        class="w-full h-64 object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+      <div class="absolute bottom-0 left-0 p-4 text-white">
+        <h2 class="text-2xl font-bold">${item.title}</h2>
+        <p class="mt-2">${item.description}</p>
+      </div>
+    </div>
+  `
+    )
+    .join("");
+
+  function updateCarousel() {
+    if (carousel) {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    updateCarousel();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
+  }
+
+  prevBtn.addEventListener("click", showPrev);
+  nextBtn.addEventListener("click", showNext);
+
+  // Initialize the carousel
+  updateCarousel();
+</script>
+
+<style>
+  /* Custom styles for the carousel */
+  #carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+</style>
