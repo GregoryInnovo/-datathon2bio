@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SemanticSearch from "../components/SemanticSearch";
+
+const title = "Buscador Semántico";
+const description =
+  "Un buscador semántico utiliza tecnología avanzada para entender el contexto y la intención detrás de las consultas, ofreciendo resultados más precisos y relevantes. Usando la técnica de embeddings, es capaz de comprender el significado de las palabras y frases, mejorando la experiencia del usuario.";
+
+const sections = [
+  {
+    title: "¿Qué es un buscador semántico?",
+    content: `Un buscador semántico es una herramienta de búsqueda avanzada que utiliza inteligencia artificial y procesamiento del lenguaje natural para comprender el significado y el contexto de las consultas de los usuarios, en lugar de simplemente buscar coincidencias de palabras clave. Debido a su capacidad para entender el lenguaje humano, un buscador semántico puede ofrecer resultados más precisos y relevantes, mejorando la experiencia del usuario.
+  
+    Sin embargo, los modelos no entienden el significado de las palabras, por lo que se utilizan técnicas de embeddings para representar las palabras y frases en un espacio vectorial, donde la similitud entre los vectores refleja la similitud semántica entre las palabras. Esto permite al buscador semántico comprender el significado de las consultas y ofrecer resultados más relevantes.    
+    `,
+  },
+  {
+    title: "Proceso de implementación",
+    content: [
+      "Recopilación y preprocesamiento de datos",
+      "Generación de embeddings utilizando modelos de lenguaje avanzados",
+      "Indexación de los embeddings para una búsqueda eficiente",
+      "Implementación de la interfaz de búsqueda",
+      "Procesamiento de consultas y comparación de similitud semántica",
+    ],
+  },
+  {
+    title: "Ventajas de esta técnica",
+    content: [
+      "Mayor precisión en los resultados de búsqueda",
+      "Capacidad para entender consultas en lenguaje natural",
+      "Mejora de la experiencia del usuario",
+      "Posibilidad de búsqueda multilingüe",
+      "Adaptabilidad a diferentes dominios y contextos",
+    ],
+  },
+];
+---
+
+<Layout title="Buscador Semántico Explicación" currentPage="search">
+  <main class="container mx-auto p-4">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <div class="flex-1">
+        <h1 class="text-3xl font-bold mb-4">{title}</h1>
+        <p class="text-lg mb-6">{description}</p>
+
+        {
+          sections.map((section) => (
+            <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+              <h2 class="text-xl font-semibold mb-4">{section.title}</h2>
+              {Array.isArray(section.content) ? (
+                <ul class="list-disc list-inside">
+                  {section.content.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{section.content}</p>
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex-1 flex flex-col justify-center md:justify-end">
+        <img
+          src="/assets/images/test.png"
+          alt="Buscador Semántico full"
+          class="rounded-lg shadow-lg max-w-full h-auto my-1"
+        />
+        <img
+          src="https://arize.com/wp-content/uploads/2022/06/blog-king-queen-embeddings.jpg"
+          alt="Buscador Semántico"
+          class="rounded-lg shadow-lg max-w-full h-auto my-1"
+        />
+        <img
+          src="https://miro.medium.com/v2/resize:fit:2000/1*zAdi7DntawgPsQekPkFxPA.png"
+          alt="Modelo de gráficos"
+          class="rounded-lg shadow-lg max-w-full h-auto my-1"
+        />
+      </div>
+    </div>
+  </main>
+  <main class="mx-auto md:p-4">
+    <SemanticSearch selectApi={1} client:load />
+  </main>
+</Layout>
+
+<style>
+  /* Puedes agregar estilos adicionales aquí si es necesario */
+</style>

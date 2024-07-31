@@ -1,9 +1,9 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
-import { API_URL } from "../config/api";
+import { API_URL, API_URL2 } from "../config/api";
 import "./styles.css";
 
-const SemanticSearch = () => {
+const SemanticSearch = ({ selectApi }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +12,7 @@ const SemanticSearch = () => {
   const [selectedProvince, setSelectedProvince] = useState("all");
   const [selectedClass, setSelectedClass] = useState("all");
   const [selectedSpecies, setSelectedSpecies] = useState(null);
+  const [requestTime, setRequestTime] = useState(null);
 
   const handleSearch = async () => {
     if (query.trim() === "") {
@@ -21,12 +22,18 @@ const SemanticSearch = () => {
 
     setIsLoading(true);
     setError(null);
+    const startTime = Date.now();
+
+    const ENDPOINT = selectApi == 2 ? API_URL2 : API_URL;
+
     try {
-      const response = await axios.post(API_URL, {
+      const response = await axios.post(ENDPOINT, {
         text: query,
         n: numResults,
       });
       setResults(response.data.results);
+      const endTime = Date.now();
+      setRequestTime(endTime - startTime);
     } catch (err) {
       setError("Error al realizar la búsqueda");
       console.error(err);
@@ -78,11 +85,11 @@ const SemanticSearch = () => {
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold mb-4">Buscador Semántico</h1>
-
       <p className="text-md mb-4">
         Digita tu búsqueda por descripción, características, nombre científico,
         etc.
       </p>
+
       <div className="flex flex-col space-x-4 lg:flex-row mb-4 ">
         <input
           type="text"
@@ -135,6 +142,11 @@ const SemanticSearch = () => {
           ))}
         </select>
       </div>
+      {requestTime !== null && (
+        <p className="my-2">
+          Tiempo de respuesta de la petición: {requestTime} ms
+        </p>
+      )}
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredResults.map((result, index) => (
