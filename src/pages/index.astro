@@ -282,15 +282,33 @@ const dataGeneralList = [
   #slider-data {
     margin: auto;
     padding: 1rem;
-    width: 370px;
+    width: 300px;
     max-width: calc(100% - 2rem);
     color: black;
     font-size: 20px;
     line-height: 1.6;
   }
 
+  @media (min-width: 360px) {
+    #slider-data {
+      width: 360px;
+    }
+  }
+
+  @media (min-width: 420px) {
+    #slider-data {
+      width: 370px;
+    }
+  }
+
   /* cuando llegue a modo tablet el width sera de 900px */
   @media (min-width: 768px) {
+    #slider-data {
+      width: 750px;
+    }
+  }
+
+  @media (min-width: 1068px) {
     #slider-data {
       width: 900px;
     }
