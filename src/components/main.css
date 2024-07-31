@@ -60,14 +60,33 @@ body {
 }
 
 .arrow--left {
-  left: 5px;
+  left: -15px;
 }
 
 .arrow--right {
   left: auto;
-  right: 5px;
+  right: -15px;
 }
 
 .arrow--disabled {
   fill: rgba(255, 255, 255, 0.13);
+}
+
+@media (min-width: 300px) {
+  .arrow--left {
+    left: -35px;
+  }
+
+  .arrow--right {
+    right: -35px;
+  }
+}
+@media (min-width: 820px) {
+  .arrow--left {
+    left: -65px;
+  }
+
+  .arrow--right {
+    right: -65px;
+  }
 }

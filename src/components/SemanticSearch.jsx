@@ -83,14 +83,15 @@ const SemanticSearch = () => {
         Digita tu búsqueda por descripción, características, nombre científico,
         etc.
       </p>
-      <div className="flex flex-col lg:flex-row space-x-4 mb-4">
+      <div className="flex flex-col space-x-4 lg:flex-row mb-4 ">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ingrese su búsqueda"
-          className="w-full p-2 border rounded mb-2 lg:mb-0"
+          // agrega fondo del color del input
+          className="w-full p-2 border rounded mb-2 lg:mb-0  bg-gray-100  text-gray-800"
         />
         <select
           value={numResults}

@@ -17,11 +17,11 @@ const Carousel = ({ slides }) => {
   });
 
   return (
-    <>
+    <div className="w-full max-w-6xl mx-auto px-4">
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
           {slides.map((slide, idx) => (
-            <div key={idx} className={`keen-slider__slide number-slide${idx}`}>
+            <div key={idx} className="keen-slider__slide">
               <DataGeneral {...slide} />
             </div>
           ))}
@@ -35,7 +35,6 @@ const Carousel = ({ slides }) => {
               }
               disabled={currentSlide === 0}
             />
-
             <Arrow
               onClick={(e) =>
                 e.stopPropagation() || instanceRef.current?.next()
@@ -49,23 +48,19 @@ const Carousel = ({ slides }) => {
         )}
       </div>
       {loaded && instanceRef.current && (
-        <div className="dots">
+        <div className="dots mt-4">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
-          ].map((idx) => {
-            return (
-              <button
-                key={idx}
-                onClick={() => {
-                  instanceRef.current?.moveToIdx(idx);
-                }}
-                className={"dot" + (currentSlide === idx ? " active" : "")}
-              ></button>
-            );
-          })}
+          ].map((idx) => (
+            <button
+              key={idx}
+              onClick={() => instanceRef.current?.moveToIdx(idx)}
+              className={`dot${currentSlide === idx ? " active" : ""}`}
+            ></button>
+          ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
@@ -90,15 +85,22 @@ function Arrow(props) {
   );
 }
 
-const DataGeneral = ({ title, description, img1, img2 }) => (
-  <div className="p-4 mt-8">
-    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-green-300">
-      {title}
-    </h2>
-    <p>{description}</p>
-    <div className="flex space-x-4 mt-4">
-      {img1 && <img src={img1} alt={title} className="w-1/2 h-auto rounded" />}
-      {img2 && <img src={img2} alt={title} className="w-1/2 h-auto rounded" />}
+const DataGeneral = ({ title, description, img1 }) => (
+  <div className="flex flex-col lg:flex-row h-full">
+    <div className="w-full lg:w-1/2 p-4 flex flex-col">
+      <h2 className="text-3xl lg:text-4xl font-extrabold text-green-300 mb-4">
+        {title}
+      </h2>
+      <p className="text-gray-600 flex-grow">{description}</p>
+    </div>
+    <div className="w-full lg:w-1/2 h-full">
+      {img1 && (
+        <img
+          src={img1}
+          alt={title}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      )}
     </div>
   </div>
 );
