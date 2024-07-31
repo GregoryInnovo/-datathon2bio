@@ -91,7 +91,7 @@ const DataGeneral = ({ title, description, img1 }) => (
       <h2 className="text-3xl lg:text-4xl font-extrabold text-green-300 mb-4">
         {title}
       </h2>
-      <p className="text-gray-600 flex-grow">{description}</p>
+      <p className="text-gray-600 flex-grow text-base lg:pr-6">{description}</p>
     </div>
     <div className="w-full lg:w-1/2 h-full">
       {img1 && (
