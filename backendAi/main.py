@@ -28,7 +28,7 @@ app.add_middleware(
 # Cargar el DataFrame
 try:
     df = pd.read_excel('./dbAll.xlsx')    
-    df['total_text'] = df.apply(lambda x: f"{x['verbatimScientificName']} {x['IUCN_class']} {x['order']} {x['family']} {x['genus']} {x['taxonRank']} {x['Grupo']} {x['kingdom']} {x['phylum']} {x['class']} {x['species']} {x['stateProvince']} ", axis=1)
+    df['total_text'] = df.apply(lambda x: f"{x['verbatimScientificName']} {x['IUCN_class']} {x['order']} {x['family']} {x['genus']} {x['taxonRank']} {x['Grupo']} {x['kingdom']} {x['phylum']} {x['species']} {x['stateProvince']} ", axis=1)
     logger.info("DataFrame cargado y procesado.")
 except Exception as e:
     logger.error(f"Error al cargar el DataFrame: {str(e)}")
@@ -74,7 +74,7 @@ def top_n_similar_species(query, n, model='smallembeddings'):
         top_n_indices = similarities[0].argsort()[-n:][::-1]
         
         # Devuelve las n especies más similares
-        return df.iloc[top_n_indices][['verbatimScientificName','IUCN_class','family','genus','taxonRank','Grupo','kingdom','phylum','class','species','stateProvince']]
+        return df.iloc[top_n_indices][['verbatimScientificName','IUCN_class','family','genus','taxonRank','Grupo','kingdom','phylum','species','stateProvince']]
     except Exception as e:
         logger.error(f"Error en top_n_similar_species: {str(e)}")
         raise
@@ -87,12 +87,20 @@ class Query(BaseModel):
 async def read_root():
     return {"message": "Welcome to the species search API explain!"}
 
-@app.post("/searchsExplain")
+@app.post("/searchExplain")
 async def search(query: Query):
     try:
         logger.info(f"Búsqueda iniciada con query: {query.text}")
         results = top_n_similar_species(query.text, query.n)
-        return {"results": results.to_dict('records')}
+        
+        # Convertir resultados a una lista de diccionarios
+        results_list = results.to_dict('records')
+        
+        # Verificar si los resultados están vacíos
+        if not results_list:
+            return {"results": []}
+        
+        return {"results": results_list}
     except Exception as e:
         logger.error(f"Error en la búsqueda: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))

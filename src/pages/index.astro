@@ -5,6 +5,7 @@ import ImportantValue from "../components/ImportantValue.astro";
 import TestCarousel from "../components/test/TestCarousel";
 
 import Carousel from "../components/Carousel";
+import GeneralDta from "../components/GeneralDta";
 
 const images = [
   "assets/images/img1.jpg",
@@ -167,7 +168,7 @@ const dataGeneralList = [
     }
   </section>
 
-  <!-- <GeneralDta client:load /> -->
+  <GeneralDta client:load />
   <main id="slider-data">
     <Carousel slides={dataGeneralList} client:load />
   </main>

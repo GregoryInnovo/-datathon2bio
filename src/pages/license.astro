@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 const title = "Licencias de Bases de Datos";
 const description =
-  "Información sobre las licencias de las bases de datos utilizadas en nuestro proyecto de buscador semántico.";
+  "Información sobre las licencias de las bases de datos utilizadas en nuestro proyecto.";
 
 const licenses = [
   {
@@ -30,45 +30,38 @@ const licenses = [
 ];
 ---
 
-<Layout title={title}>
+<Layout title={title} currentPage="license">
   <main class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">{title}</h1>
     <p class="text-lg mb-6">{description}</p>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      {
-        licenses.map((license) => (
-          <div class="bg-white shadow-md rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-2">{license.name}</h2>
-            <p class="font-medium text-blue-600 mb-2">{license.type}</p>
-            <p class="mb-4">{license.description}</p>
-            <a
-              href={license.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-blue-500 hover:underline"
-            >
-              Ver licencia completa
-            </a>
-          </div>
-        ))
-      }
-    </div>
+    <!-- <div class="grid md:grid-cols-2 gap-6">
+        {
+          licenses.map((license) => (
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold mb-2">{license.name}</h2>
+              <p class="font-medium text-blue-600 mb-2">{license.type}</p>
+              <p class="mb-4">{license.description}</p>
+              <a
+                href={license.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-500 hover:underline"
+              >
+                Ver licencia completa
+              </a>
+            </div>
+          ))
+        }
+      </div> -->
 
     <div class="mt-8 bg-gray-100 p-6 rounded-lg">
-      <h2 class="text-2xl font-semibold mb-4">Nota Importante</h2>
+      <h2 class="text-2xl font-semibold mb-4">
+        GBIF | Global Biodiversity Information Facility
+      </h2>
       <p>
-        <intellectualRights>
-          <para
-            >Este contenido se encuentra bajo una <ulink
-              url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"
-              ><citetitle
-                >Licencia de Atribución No Comercial de Creative Commons
-                (CC-BY-NC) 4.0</citetitle
-              ></ulink
-            >.</para
-          >
-        </intellectualRights>
+        GBIF.org (13 June 2024) GBIF Occurrence Download
+        https://doi.org/10.15468/dl.nht4pe
       </p>
     </div>
   </main>

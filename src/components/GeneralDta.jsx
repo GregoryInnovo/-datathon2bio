@@ -17,9 +17,51 @@ const GeneralDta = () => {
           <path
             fillRule="evenodd"
             d="M5.625 1.5H9a3.75 3.75 0 0 1 3.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 0 1 3.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875ZM9.75 17.25a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75Zm2.25-3a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75Zm3.75-1.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-5.25Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
           <path d="M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Explora el Reino Animalae",
+      description:
+        "Descubre las especies animales que habitan en Colombia y aprende sobre sus características.",
+      link: "/animalae",
+      nameIcon: (
+        <svg viewBox="0 0 24 24" className="size-6">
+          <path
+            fill="white"
+            d="m12 8l-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91c-.55.83-.89 1.26-.96 2.25l-1.93.29l.21.98l1.76-.26l.14.71l-1.57.94l.47.89l1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89l.47-.89l-1.57-.94l.14-.71l1.76.26l.21-.98l-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1a1 1 0 0 1-1 1a1 1 0 0 1-1-1a1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1c-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: "Explora el Reino Plantae",
+      description:
+        "Descubre las especies vegetales que habitan en Colombia y descubre sus características.",
+      link: "/plantae",
+      nameIcon: (
+        <svg viewBox="0 0 24 24" className="size-5">
+          <path
+            fill="white"
+            d="M23 4.1V2.3l-1.8-.2c-.1 0-.7-.1-1.7-.1c-4.1 0-7.1 1.2-8.8 3.3C9.4 4.5 7.6 4 5.5 4c-1 0-1.7.1-1.7.1l-1.9.3l.1 1.7c.1 3 1.6 8.7 6.8 8.7H9v3.4c-3.8.5-7 1.8-7 1.8v2h20v-2s-3.2-1.3-7-1.8V15c6.3-.1 8-7.2 8-10.9M12 18h-1v-5.6S10.8 9 8 9c0 0 1.5.8 1.9 3.7c-.4.1-.8.1-1.1.1C4.2 12.8 4 6.1 4 6.1S4.6 6 5.5 6c1.9 0 5 .4 5.9 3.1C11.9 4.6 17 4 19.5 4c.9 0 1.5.1 1.5.1s0 9-6.3 9H14c0-2 2-5 2-5c-3 1-3 4.9-3 4.9v5z"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: "Explora el Reino fungi",
+      description:
+        "Descubre las especies de hongos que habitan en Colombia y aprende sobre sus características.",
+      link: "/fungi",
+      nameIcon: (
+        <svg viewBox="0 0 24 24" className="size-5">
+          <path
+            fill="white"
+            d="M4 12h16c0-3.73-2.56-6.87-6-7.75c-.14.99-1 1.75-2 1.75s-1.86-.76-2-1.75C6.56 5.13 4 8.27 4 12m8-10a10 10 0 0 1 10 10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2A10 10 0 0 1 12 2m1.5 15h-3l-.58 2l-.27 1h4.7l-.27-1zm1.5-2l1 3.5l.27.95l.08.55c0 1.1-.9 2-2 2h-4.7l-.48-.06a2.004 2.004 0 0 1-1.44-2.44l.27-1L9 15zm1-8a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2M8 7a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2"
+          />
         </svg>
       ),
     },
@@ -46,7 +88,7 @@ const GeneralDta = () => {
     },
   ];
 
-  const Feature = ({ name, description, nameIcon }) => {
+  const Feature = ({ name, link, description, nameIcon }) => {
     return (
       <div key={name} className="relative pl-16  px-4 ">
         <dt className="text-base font-semibold leading-7 text-gray-900">
@@ -59,7 +101,7 @@ const GeneralDta = () => {
           {description}
         </dd>
         <a
-          href="/search"
+          href={link}
           className="text-base font-semibold leading-7 text-forest hover:text-sand mt-4"
         >
           Ver más
