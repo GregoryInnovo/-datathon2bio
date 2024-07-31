@@ -67,7 +67,7 @@ const TestCarousel = ({ images }) => {
         <div key={index} className="h-full overflow-hidden">
           <MovingImageRow
             images={rowImages}
-            speed={isMobile ? 0.1 + index * 0.02 : 0.2 + index * 0.05}
+            speed={isMobile ? 0.8 + index * 0.02 : 0.1 + index * 0.05}
             direction={index % 2 === 0 ? "left" : "right"}
           />
         </div>

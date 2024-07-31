@@ -77,7 +77,7 @@ const SemanticSearch = () => {
 
   return (
     <div className="p-4">
-      <h1 class="text-3xl font-bold mb-4">Buscador Semántico</h1>
+      <h1 className="text-3xl font-bold mb-4">Buscador Semántico</h1>
 
       <p className="text-md mb-4">
         Digita tu búsqueda por descripción, características, nombre científico,

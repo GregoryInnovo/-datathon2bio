@@ -40,7 +40,7 @@ function setupAudioControls(
     } else {
       iconSpan.textContent = "▶️";
       textSpan.textContent =
-        button === playButton ? "Sonido Jungla" : "Sonido Oceano";
+        button.id === "playSound1" ? "Guía para Hyperion" : "Sonido Oceano";
     }
   }
 
@@ -54,11 +54,11 @@ function setupAudioControls(
     } else {
       if (audio1 && audio1 !== audio) {
         audio1.pause();
-        updateButtonText(otherButton, false);
+        updateButtonText(document.getElementById("playSound1"), false);
       }
       if (audio2 && audio2 !== audio) {
         audio2.pause();
-        updateButtonText(otherButton, false);
+        updateButtonText(document.getElementById("playSound2"), false);
       }
       audio.play();
       updateButtonText(playButton, true);
@@ -105,7 +105,7 @@ function setupAudioControls(
 function initializeAudio() {
   setupAudioControls(
     "playSound1",
-    "/sounds/jungle.mp3",
+    "/sounds/guionHyperion.wav",
     "volumeControl1",
     "loopAudio1",
     "playSound2"
@@ -159,6 +159,6 @@ function updateButtonText(button, isPlaying) {
   } else {
     iconSpan.textContent = "▶️";
     textSpan.textContent =
-      button.id === "playSound1" ? "Sonido Jungla" : "Sonido Oceano";
+      button.id === "playSound1" ? "Guía para Hyperion" : "Sonido Oceano";
   }
 }
