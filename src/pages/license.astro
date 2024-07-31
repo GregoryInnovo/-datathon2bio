@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Licencias de Bases de Datos";
+const description =
+  "Información sobre las licencias de las bases de datos utilizadas en nuestro proyecto de buscador semántico.";
+
+const licenses = [
+  {
+    name: "Base de Datos de Especies Colombianas",
+    type: "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    description:
+      "Esta licencia permite compartir y adaptar el material para cualquier propósito, incluso comercialmente, siempre que se dé el crédito apropiado.",
+    url: "https://creativecommons.org/licenses/by/4.0/",
+  },
+  {
+    name: "Diccionario de Sinónimos y Antónimos",
+    type: "GNU General Public License v3.0",
+    description:
+      "Esta licencia de software libre garantiza la libertad de usar, estudiar, compartir y modificar el software.",
+    url: "https://www.gnu.org/licenses/gpl-3.0.en.html",
+  },
+  {
+    name: "Corpus Lingüístico Multilingüe",
+    type: "MIT License",
+    description:
+      "Una licencia permisiva que permite el uso, copia, modificación y distribución del software, con la única condición de incluir el aviso de copyright y la licencia en todas las copias.",
+    url: "https://opensource.org/licenses/MIT",
+  },
+];
+---
+
+<Layout title={title}>
+  <main class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4">{title}</h1>
+    <p class="text-lg mb-6">{description}</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        licenses.map((license) => (
+          <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-2">{license.name}</h2>
+            <p class="font-medium text-blue-600 mb-2">{license.type}</p>
+            <p class="mb-4">{license.description}</p>
+            <a
+              href={license.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-500 hover:underline"
+            >
+              Ver licencia completa
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+      <h2 class="text-2xl font-semibold mb-4">Nota Importante</h2>
+      <p>
+        <intellectualRights>
+          <para
+            >Este contenido se encuentra bajo una <ulink
+              url="http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+              ><citetitle
+                >Licencia de Atribución No Comercial de Creative Commons
+                (CC-BY-NC) 4.0</citetitle
+              ></ulink
+            >.</para
+          >
+        </intellectualRights>
+      </p>
+    </div>
+  </main>
+</Layout>
