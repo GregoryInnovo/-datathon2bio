@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import "./styles.css";
+import "./main.css";
 
 const Carousel = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -96,8 +96,9 @@ const DataGeneral = ({ title, description, img1, img2 }) => (
       {title}
     </h2>
     <p>{description}</p>
-    <div className="flex items-center space-x-4 mt-4 m-auto justify-center">
+    <div className="flex space-x-4 mt-4">
       {img1 && <img src={img1} alt={title} className="w-1/2 h-auto rounded" />}
+      {img2 && <img src={img2} alt={title} className="w-1/2 h-auto rounded" />}
     </div>
   </div>
 );

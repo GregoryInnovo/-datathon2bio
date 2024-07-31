@@ -7,7 +7,9 @@ import GeneralDta from "../components/GeneralDta";
 import ImportantValue from "../components/ImportantValue.astro";
 import CarouselInfo from "../components/CarouselInfo.astro";
 import TestCarousel from "../components/test/TestCarousel";
-import SimpleCarousel from "../components/SimpleCarousel";
+
+import Carousel from "../components/Carousel";
+
 const images = [
   "assets/images/img1.jpg",
   "assets/images/img2.jpg",
@@ -199,17 +201,99 @@ const dataGeneralList = [
   <!-- <CarouselInfo /> -->
 
   <!-- <GeneralDta client:load /> -->
+  <main id="slider-data">
+    <Carousel slides={dataGeneralList} client:load />
+    <!-- <DataGeneral
+      title="Reino"
+      description="En el campo de la biología, un reino es una clasificación que agrupa a organismos basándose en características fundamentales compartidas, tales como la estructura de sus células, su forma de obtener energía y su reproducción. Por ejemplo, el reino Animalia incluye seres vivos que se alimentan de otros organismos y tienen la capacidad de moverse, mientras que el reino Plantae consta de organismos que generan su propio alimento a través de la fotosíntesis. Los reinos son esenciales para entender cómo los distintos tipos de vida en la Tierra están relacionados entre sí y cómo han evolucionado a lo largo del tiempo."
+      img1="https://images.pexels.com/photos/21071283/pexels-photo-21071283/free-photo-of-madera-naturaleza-animal-hierba.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      img2="https://images.pexels.com/photos/22610593/pexels-photo-22610593/free-photo-of-reflexionando-sobre-los-primates.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    />
+
+    <section class="mt-1">
+      <div
+        class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+      >
+        <div class="font-light text-black sm:text-lg">
+          <h2
+            class="mb-4 text-4xl tracking-tight font-extrabold text-green-300"
+          >
+            Filo
+          </h2>
+          <p>
+            En biología, un filo es una categoría taxonómica (relacionada con la
+            taxonomía, que es la ciencia de clasificar los seres vivos) que se
+            encuentra entre el reino y la clase, y se utiliza para agrupar
+            organismos que comparten un ancestro común y un modelo de
+            organización similar.
+          </p>
+
+          <ol class="mb-4 list-decimal">
+            <li class="ml-4 text-base mb-1">
+              Los filos representan grandes grupos de la vida en la Tierra y se
+              definen por características distintivas en su estructura y
+              desarrollo. Por ejemplo, el filo Chordata incluye a todos los
+              animales con una cuerda dorsal, como los mamíferos, aves y peces,
+              mientras que el filo Arthropoda abarca a los insectos, arácnidos y
+              crustáceos, conocidos por su exoesqueleto y segmentación corporal.
+            </li>
+            <li class="ml-4 text-base">
+              La clasificación en filos ayuda a los científicos a entender las
+              complejas relaciones evolutivas y la diversidad biológica.
+            </li>
+          </ol>
+        </div>
+        <div class="mt-8">
+          <img
+            class="object-cover rounded-lg w-full h-3/4"
+            src="https://images.pexels.com/photos/4825671/pexels-photo-4825671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="office content 1"
+          />
+        </div>
+      </div>
+    </section>
+
+    <DataGeneral
+      title="Clase"
+      description="En biología, la clase es una categoría taxonómica (relacionada con la taxonomía, que es la ciencia de clasificar los seres vivos) que se ubica entre el filo y el orden. Agrupa a organismos que comparten un conjunto de rasgos distintivos y un ancestro común. Por ejemplo, la clase Mammalia (mamíferos) incluye a todos los animales que poseen glándulas mamarias para alimentar a sus crías con leche. La clasificación en clases ayuda a organizar la diversidad biológica y refleja la historia evolutiva y las relaciones entre diferentes grupos de seres vivos."
+      img1="https://images.pexels.com/photos/26229810/pexels-photo-26229810/free-photo-of-merlin-paloma-halcon.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      img2="https://images.pexels.com/photos/26077123/pexels-photo-26077123/free-photo-of-edificio-animal-vaso-cristal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    />
+    <DataGeneral
+      title="Orden"
+      description="En biología, el orden es una categoría taxonómica (que se refiere a la clasificación científica de los seres vivos) situada entre la clase y la familia. Agrupa a organismos que comparten características evolutivas y morfológicas significativas. Por ejemplo, el orden Carnivora incluye animales que tienen dientes y garras adaptados para cazar y comer carne, como leones y osos. Esta categoría ayuda a los científicos a entender las relaciones evolutivas entre los organismos y a estudiar su diversidad de una manera organizada."
+    />
+    <DataGeneral
+      title="Familia"
+      description="En biología, la familia es una categoría taxonómica (que se refiere a la clasificación científica de los seres vivos) que se encuentra entre el orden y el género. Agrupa organismos que comparten características evolutivas y morfológicas significativas, lo que indica un ancestro común. Por ejemplo, la familia Canidae incluye a los perros, lobos y zorros, que son conocidos por sus similitudes en la estructura dental y comportamiento social. La categoría de familia es crucial para entender las relaciones evolutivas y la diversidad biológica en un nivel más específico que el orden, pero más general que el género."
+    />
+    <DataGeneral
+      title="Género"
+      description="En biología, el género es una categoría taxonómica que se encuentra justo por encima de la especie y por debajo de la familia en la jerarquía de clasificación de los seres vivos. Un género agrupa a varias especies que son muy similares y comparten características específicas, lo que sugiere un ancestro común cercano. Por ejemplo, el género Panthera incluye grandes felinos como el león (Panthera leo), el tigre (Panthera tigris), y el jaguar (Panthera onca). Estas especies comparten rasgos distintivos que las hacen diferentes de otros géneros dentro de la misma familia, como Felis, que incluye al gato doméstico (Felis catus). La categoría de género es crucial para la taxonomía porque ayuda a los científicos a identificar y clasificar la diversidad de la vida, proporcionando una comprensión más detallada de las relaciones evolutivas entre las especies."
+    />
+    <DataGeneral
+      title="Especies"
+      description="En biología, una especie es el nivel más específico de clasificación biológica y se refiere a un grupo de organismos que pueden reproducirse entre sí y producir descendencia fértil. Los miembros de una especie comparten características genéticas y físicas similares, lo que indica un linaje común. Un ejemplo claro es el del Pez Payaso (Amphiprioninae), conocido por su asociación simbiótica con las anémonas marinas. Cada pez payaso es parte de la misma especie porque puede aparearse con otro pez payaso y tener crías que también serán peces payaso."
+    /> -->
+  </main>
 </Layout>
 
 <style>
-  main {
+  #slider-data {
     margin: auto;
     padding: 1rem;
-    width: 900px;
+    width: 380px;
     max-width: calc(100% - 2rem);
     color: black;
     font-size: 20px;
     line-height: 1.6;
+  }
+
+  /* cuando llegue a modo tablet el width sera de 900px */
+  @media (min-width: 768px) {
+    #slider-data {
+      width: 900px;
+    }
   }
   .astro-a {
     position: absolute;
