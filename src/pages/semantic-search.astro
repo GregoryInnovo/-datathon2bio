@@ -1,24 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SemanticSearch from "../components/SemanticSearch";
 
 const title = "Buscador Semántico";
 const description =
-  "Un buscador semántico utiliza tecnología avanzada para entender el contexto y la intención detrás de las consultas, ofreciendo resultados más precisos y relevantes. Usando la técnica de embeddings, es capaz de comprender el significado de las palabras y frases, mejorando la experiencia del usuario.";
+  "Un buscador semántico utiliza tecnología avanzada para entender el contexto y la intención detrás de las consultas, ofreciendo resultados más precisos y relevantes. Sin embargo, los modelos no entienden el significado de las palabras, por lo que se utilizan técnicas de embeddings para representar las palabras y frases en un espacio vectorial, donde la similitud entre los vectores refleja la similitud semántica entre las palabras, mejorando la experiencia del usuario.";
 
 const sections = [
-  {
-    title: "¿Qué es un buscador semántico?",
-    content: `Un buscador semántico es una herramienta de búsqueda avanzada que utiliza inteligencia artificial y procesamiento del lenguaje natural para comprender el significado y el contexto de las consultas de los usuarios, en lugar de simplemente buscar coincidencias de palabras clave. Debido a su capacidad para entender el lenguaje humano, un buscador semántico puede ofrecer resultados más precisos y relevantes, mejorando la experiencia del usuario.
-  
-    Sin embargo, los modelos no entienden el significado de las palabras, por lo que se utilizan técnicas de embeddings para representar las palabras y frases en un espacio vectorial, donde la similitud entre los vectores refleja la similitud semántica entre las palabras. Esto permite al buscador semántico comprender el significado de las consultas y ofrecer resultados más relevantes.    
-    `,
-  },
   {
     title: "Proceso de implementación",
     content: [
       "Recopilación y preprocesamiento de datos",
-      "Generación de embeddings utilizando modelos de lenguaje avanzados",
+      "Generación de embeddings",
       "Indexación de los embeddings para una búsqueda eficiente",
       "Implementación de la interfaz de búsqueda",
       "Procesamiento de consultas y comparación de similitud semántica",
@@ -69,11 +61,6 @@ const sections = [
           class="rounded-lg shadow-lg max-w-full h-auto my-1"
         />
         <img
-          src="https://arize.com/wp-content/uploads/2022/06/blog-king-queen-embeddings.jpg"
-          alt="Buscador Semántico"
-          class="rounded-lg shadow-lg max-w-full h-auto my-1"
-        />
-        <img
           src="https://miro.medium.com/v2/resize:fit:2000/1*zAdi7DntawgPsQekPkFxPA.png"
           alt="Modelo de gráficos"
           class="rounded-lg shadow-lg max-w-full h-auto my-1"
@@ -81,11 +68,4 @@ const sections = [
       </div>
     </div>
   </main>
-  <main class="mx-auto md:p-4">
-    <SemanticSearch selectApi={1} client:load />
-  </main>
 </Layout>
-
-<style>
-  /* Puedes agregar estilos adicionales aquí si es necesario */
-</style>
