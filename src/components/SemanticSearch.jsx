@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import axios from "axios";
-import { API_URL, API_URL2 } from "../config/api";
+import { API_URL } from "../config/api";
 import "./styles.css";
 
 const SemanticSearch = ({ selectApi }) => {
@@ -24,7 +24,7 @@ const SemanticSearch = ({ selectApi }) => {
     setError(null);
     const startTime = Date.now();
 
-    const ENDPOINT = selectApi == 2 ? API_URL2 : API_URL;
+    const ENDPOINT = API_URL;
 
     try {
       const response = await axios.post(ENDPOINT, {
@@ -35,7 +35,9 @@ const SemanticSearch = ({ selectApi }) => {
       const endTime = Date.now();
       setRequestTime(endTime - startTime);
     } catch (err) {
-      setError("Error al realizar la búsqueda");
+      setError(
+        "Error al realizar la búsqueda, si requiere asistencia contacte a mediacollab@uao.edu.co"
+      );
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -182,6 +184,21 @@ const SemanticSearch = ({ selectApi }) => {
             </div>
           </div>
         ))}
+      </div>
+
+      <h2 className="text-2xl font-semibold mt-4">Video de ejemplo</h2>
+
+      {/* inserta video de ejemplo */}
+      <div className="flex justify-center mt-4">
+        <iframe
+          width="100%"
+          height="740"
+          src="https://www.youtube.com/embed/1WBkRgWvlCg"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
 
       {/* Modal */}
